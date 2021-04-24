@@ -47,7 +47,7 @@ set(WEBP_USE_THREAD ${Threads_FOUND})
 set(LT_OBJDIR ".libs/")
 
 # Only useful for vwebp, so useless for now.
-find_package(OpenGL)
+#find_package(OpenGL)
 set(WEBP_HAVE_GL ${OPENGL_FOUND})
 
 # Check if we need to link to the C math library. We do not look for it as it is
@@ -67,7 +67,7 @@ endif()
 set(WEBP_DEP_IMG_LIBRARIES)
 set(WEBP_DEP_IMG_INCLUDE_DIRS)
 foreach(I_LIB PNG JPEG TIFF)
-  find_package(${I_LIB})
+#  find_package(${I_LIB})
   set(WEBP_HAVE_${I_LIB} ${${I_LIB}_FOUND})
   if(${I_LIB}_FOUND)
     list(APPEND WEBP_DEP_IMG_LIBRARIES ${${I_LIB}_LIBRARIES})
@@ -83,7 +83,7 @@ endif()
 include(CMakePushCheckState)
 set(WEBP_DEP_GIF_LIBRARIES)
 set(WEBP_DEP_GIF_INCLUDE_DIRS)
-find_package(GIF)
+#find_package(GIF)
 set(WEBP_HAVE_GIF ${GIF_FOUND})
 if(GIF_FOUND)
   # GIF find_package only locates the header and library, it doesn't fail
