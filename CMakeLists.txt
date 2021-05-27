@@ -212,16 +212,15 @@ else()
   add_definitions(-Wall)
 endif()
 include_directories(${WEBP_DEP_INCLUDE_DIRS})
-add_library(webpdecode OBJECT ${WEBP_DEC_SRCS})
+add_library(webpdecode ${WEBP_DEC_SRCS})
 target_include_directories(webpdecode
                            PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
                                    ${CMAKE_CURRENT_SOURCE_DIR})
-add_library(webpdspdecode OBJECT ${WEBP_DSP_COMMON_SRCS} ${WEBP_DSP_DEC_SRCS})
+add_library(webpdspdecode ${WEBP_DSP_COMMON_SRCS} ${WEBP_DSP_DEC_SRCS})
 target_include_directories(webpdspdecode
                            PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
                                    ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(webputilsdecode
-            OBJECT
             ${WEBP_UTILS_COMMON_SRCS}
             ${WEBP_UTILS_DEC_SRCS})
 target_include_directories(webputilsdecode
